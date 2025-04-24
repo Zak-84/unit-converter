@@ -23,19 +23,25 @@
       color: #2c3e50;
     }
     .bookmarklet-button {
-      display: inline-block;
-      background: #3498db;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 20px 0;
-      cursor: move;
-    }
-    .bookmarklet-button:hover {
-      background: #2980b9;
-    }
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 15px 30px; /* Increased padding */
+        border-radius: 6px; /* Slightly larger border radius */
+        text-decoration: none;
+        font-weight: bold;
+        margin: 25px 0; /* Increased margin */
+        cursor: move;
+        font-size: 18px; /* Increased font size */
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* Added shadow for depth */
+        transition: all 0.2s ease; /* Smooth transition for hover effect */
+        }
+
+        .bookmarklet-button:hover {
+        background: #2980b9;
+        transform: translateY(-2px); /* Slight lift effect on hover */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+        }
     .instructions {
       background: #f8f9fa;
       padding: 20px;
