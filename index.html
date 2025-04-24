@@ -1,12 +1,237 @@
+/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unit Converter</title>
+  <title>Unit Converter Bookmarklet</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .bookmarklet-button {
+      display: inline-block;
+      background: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 20px 0;
+      cursor: move;
+    }
+    .bookmarklet-button:hover {
+      background: #2980b9;
+    }
+    .instructions {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 30px 0;
+    }
+    .instructions ol {
+      padding-left: 25px;
+    }
+    .instructions li {
+      margin-bottom: 15px;
+    }
+    .browser-instructions {
+      margin-top: 30px;
+    }
+    .browser-tab {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-right: 5px;
+      background: #eee;
+      cursor: pointer;
+      border-radius: 4px 4px 0 0;
+    }
+    .browser-tab.active {
+      background: #f8f9fa;
+      border-bottom: 2px solid #3498db;
+    }
+    .browser-content {
+      display: none;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 0 0 4px 4px;
+    }
+    .browser-content.active {
+      display: block;
+    }
+    .demo-section {
+      margin: 30px 0;
+    }
+    .demo-section h2 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #7f8c8d;
+      font-size: 0.9em;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    code {
+      font-family: monospace;
+      background: #f1f1f1;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Unit Converter</h1>
-  <p>Convert units easily and quickly!</p>
+  <header>
+    <h1>Unit Converter Bookmarklet</h1>
+    <p>Convert between millimeters and inches instantly on any webpage</p>
+  </header>
+
+  <section>
+    <h2>Install the Bookmarklet</h2>
+    <p>Drag this button to your bookmarks bar:</p>
+    <a class="bookmarklet-button" href="javascript:(function(){function mmToInches(mm){return(mm/25.4).toFixed(2);}function inchesToMm(inches){return(inches*25.4).toFixed(2);}document.querySelectorAll('*').forEach(e=>{if(e.children.length===0){const t=e.textContent.trim();if(t.includes(' mm')||t.includes('mm')){const m=t.match(/(\d+(\.\d+)?)\s*mm/);if(m){const mmValue=parseFloat(m[1]),inchesValue=mmToInches(mmValue),s=document.createElement('span');s.style.color='red',s.style.fontWeight='bold',s.textContent=` ${inchesValue} inches `,e.appendChild(s);}}else if(t.includes(' inches')||t.includes('"')||t.includes(' "')){const m=t.match(/(\d+(\.\d+)?)\s*(inches|"|"\s*)/);if(m){const inchesValue=parseFloat(m[1]),mmValue=inchesToMm(inchesValue),s=document.createElement('span');s.style.color='red',s.style.fontWeight='bold',s.textContent=` ${mmValue} mm `,e.appendChild(s);}}}});})();">Unit Converter</a>
+    <p><small>(Drag the button above to your bookmarks bar)</small></p>
+  </section>
+
+  <section class="instructions">
+    <h2>How to Install</h2>
+    <ol>
+      <li>Make sure your browser's bookmarks bar is visible.
+        <ul>
+          <li>In Chrome: View → Always Show Bookmarks Bar (or press Ctrl+Shift+B)</li>
+          <li>In Firefox: View → Toolbars → Bookmarks Toolbar</li>
+          <li>In Safari: View → Show Favorites Bar</li>
+          <li>In Edge: Settings → Appearance → Show favorites bar</li>
+        </ul>
+      </li>
+      <li>Drag the "Unit Converter" button above to your bookmarks bar.</li>
+      <li>Visit any webpage with measurements in mm or inches.</li>
+      <li>Click the "Unit Converter" bookmark to automatically convert all measurements on the page.</li>
+    </ol>
+  </section>
+
+  <section class="demo-section">
+    <h2>What It Does</h2>
+    <p>This bookmarklet scans the entire webpage for measurements in:</p>
+    <ul>
+      <li>Millimeters (e.g., "42mm" or "42 mm")</li>
+      <li>Inches (e.g., "1.65 inches" or '1.65"')</li>
+    </ul>
+    <p>It then adds the converted value right next to the original measurement in <span style="color: red; font-weight: bold;">bold red text</span>.</p>
+    
+    <h3>Example:</h3>
+    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+      <p>Original text: Scale length: 648 mm</p>
+      <p>After clicking bookmarklet: Scale length: 648 mm <span style="color: red; font-weight: bold;">25.51 inches</span></p>
+    </div>
+    
+    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 4px;">
+      <p>Original text: Nut width: 1.6875"</p>
+      <p>After clicking bookmarklet: Nut width: 1.6875" <span style="color: red; font-weight: bold;">42.86 mm</span></p>
+    </div>
+  </section>
+
+  <section class="browser-instructions">
+    <h2>Browser-Specific Instructions</h2>
+    
+    <div class="browser-tabs">
+      <div class="browser-tab active" onclick="showBrowserTab('chrome')">Chrome</div>
+      <div class="browser-tab" onclick="showBrowserTab('firefox')">Firefox</div>
+      <div class="browser-tab" onclick="showBrowserTab('safari')">Safari</div>
+      <div class="browser-tab" onclick="showBrowserTab('edge')">Edge</div>
+    </div>
+    
+    <div id="chrome" class="browser-content active">
+      <ol>
+        <li>Make sure your bookmarks bar is visible (View → Always Show Bookmarks Bar or press Ctrl+Shift+B)</li>
+        <li>Drag the "Unit Converter" button above to your bookmarks bar</li>
+        <li>Navigate to any page with measurements</li>
+        <li>Click the "Unit Converter" bookmark in your bookmarks bar</li>
+        <li>All measurements should now show conversions in bold red text</li>
+      </ol>
+    </div>
+    
+    <div id="firefox" class="browser-content">
+      <ol>
+        <li>Make sure your bookmarks toolbar is visible (View → Toolbars → Bookmarks Toolbar)</li>
+        <li>Drag the "Unit Converter" button above to your bookmarks toolbar</li>
+        <li>Navigate to any page with measurements</li>
+        <li>Click the "Unit Converter" bookmark in your bookmarks toolbar</li>
+        <li>All measurements should now show conversions in bold red text</li>
+      </ol>
+    </div>
+    
+    <div id="safari" class="browser-content">
+      <ol>
+        <li>Make sure your favorites bar is visible (View → Show Favorites Bar)</li>
+        <li>Drag the "Unit Converter" button above to your favorites bar</li>
+        <li>Navigate to any page with measurements</li>
+        <li>Click the "Unit Converter" bookmark in your favorites bar</li>
+        <li>All measurements should now show conversions in bold red text</li>
+      </ol>
+    </div>
+    
+    <div id="edge" class="browser-content">
+      <ol>
+        <li>Make sure your favorites bar is visible (Settings → Appearance → Show favorites bar)</li>
+        <li>Drag the "Unit Converter" button above to your favorites bar</li>
+        <li>Navigate to any page with measurements</li>
+        <li>Click the "Unit Converter" bookmark in your favorites bar</li>
+        <li>All measurements should now show conversions in bold red text</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>Bookmarklet not working?</strong> Some websites have security settings that prevent bookmarklets from running. Try a different website.</li>
+      <li><strong>Missing some measurements?</strong> The bookmarklet looks for common patterns like "42mm" or "1.65 inches". If a measurement is formatted uniquely, it might be missed.</li>
+      <li><strong>Page loads slowly after using the bookmarklet?</strong> The script scans all elements on the page, which might cause performance issues on very large pages.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Unit Converter Bookmarklet &copy; 2025</p>
+  </footer>
+
+  <script>
+    function showBrowserTab(browser) {
+      // Hide all content
+      document.querySelectorAll('.browser-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Deactivate all tabs
+      document.querySelectorAll('.browser-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Activate selected content and tab
+      document.getElementById(browser).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
