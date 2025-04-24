@@ -21,8 +21,7 @@ The bookmarklet searches the webpage for text containing measurements (e.g., "12
 1. In your browser, right-click the **Bookmarks** menu (or use the bookmark manager).
 2. Select **Add Bookmark** or **New Bookmark**.
 3. For the **Name**, enter something like "Measurement Converter".
-4. For the **URL**, paste the copied code from `dist/index.js`, ensuring it starts with `javascript:` (if it doesn't, prepend `javascript:` to the code).
-   - Example: `javascript:(function(){...})()`
+4. For the **URL**, paste the copied code from `dist/index.js`.
 5. Save the bookmark.
 
 ### Step 3: Use the Bookmarklet
