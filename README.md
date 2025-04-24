@@ -30,11 +30,6 @@ The bookmarklet searches the webpage for text containing measurements (e.g., "12
 3. The script will scan the page and convert all detected measurements to the opposite unit (inches to mm or mm to inches).
 4. Click the bookmark again to toggle back to the original units.
 
-## Example
-- Original text: "The board is 12 inches long."
-- After clicking: "The board is 304.8 mm long."
-- Clicking again: Reverts to "The board is 12 inches long."
-
 ## Notes
 - The bookmarklet does not require any dependencies or npm installation. It is a standalone JavaScript script.
 - It works on most websites but may not detect measurements in complex formats or dynamically loaded content.
