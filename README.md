@@ -32,6 +32,9 @@ The bookmarklet searches the webpage for text containing measurements (e.g., "12
 3. The script will scan the page and convert all detected measurements to the opposite unit (inches to mm or mm to inches).
 4. Click the bookmark again to toggle back to the original units.
 
+## Disclaimer
+This bookmarklet is provided as-is, and you’re using it at your own risk. It should be totally fine, but I’m not responsible if anything weird happens—like bugs, glitches, or unexpected results. Always feel free to look through the code before using it!
+
 ## Notes
 - The bookmarklet does not require any dependencies or npm installation. It is a standalone JavaScript script.
 - It works on most websites but may not detect measurements in complex formats or dynamically loaded content.
