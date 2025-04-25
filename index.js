@@ -23,9 +23,15 @@ javascript:(function() {
                     const mmValue = parseFloat(match[1]);
                     const inchesValue = mmToInches(mmValue);
                     const span = document.createElement('span'); // Create a new span element
-                    span.style.color = 'red'; // Set text color to red
-                    span.style.fontWeight = 'bold'; // Make text bold
-                    span.textContent = ` ${inchesValue} inches `; // Set the conversion text
+                    // Style as a blue pill with white text
+                    span.style.backgroundColor = '#3498db'; 
+                    span.style.color = 'white';
+                    span.style.padding = '2px 8px';
+                    span.style.borderRadius = '12px';
+                    span.style.fontSize = '0.9em';
+                    span.style.margin = '0 4px';
+                    span.style.display = 'inline-block';
+                    span.textContent = `${inchesValue} in`; // Set the conversion text
                     element.appendChild(span); // Append the span to the element
                 }
             } else if (text.includes(' inches') || text.includes('"') || text.includes(' "')) {
@@ -34,9 +40,15 @@ javascript:(function() {
                     const inchesValue = parseFloat(match[1]);
                     const mmValue = inchesToMm(inchesValue);
                     const span = document.createElement('span'); // Create a new span element
-                    span.style.color = 'red'; // Set text color to red
-                    span.style.fontWeight = 'bold'; // Make text bold
-                    span.textContent = ` ${mmValue} mm `; // Set the conversion text
+                    // Style as a blue pill with white text
+                    span.style.backgroundColor = '#3498db';
+                    span.style.color = 'white';
+                    span.style.padding = '2px 8px';
+                    span.style.borderRadius = '12px';
+                    span.style.fontSize = '0.9em';
+                    span.style.margin = '0 4px';
+                    span.style.display = 'inline-block';
+                    span.textContent = `${mmValue} mm`; // Set the conversion text
                     element.appendChild(span); // Append the span to the element
                 }
             }
